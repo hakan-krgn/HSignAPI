@@ -1,7 +1,8 @@
 jdk:
-  - openjdk-16
+  - openjdk16
 before_install:
-  - ./custom_setup.sh
+  - wget https://github.com/sormuras/bach/raw/master/install-jdk.sh
+  - source ./install-jdk.sh --feature 16 --license GPL
 install:
   - echo "Running a custom install command"
   - ./gradlew clean install -xtest
