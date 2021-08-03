@@ -32,7 +32,7 @@ public class SignManager implements HSignManager {
     private HSignWrapper setupSignWrapper() {
         String serverVersion = this.hSignAPI.getPlugin().getServer().getClass().getName().split("\\.")[3];
         try {
-            return (HSignWrapper) Class.forName("com.hakan.signapi.SignWrapper_" + serverVersion).getConstructor(HSignAPI.class).newInstance(this.hSignAPI);
+            return (HSignWrapper) Class.forName("com.hakan.signapi.HSignWrapper_" + serverVersion).getConstructor(HSignAPI.class).newInstance(this.hSignAPI);
         } catch (InvocationTargetException | ClassNotFoundException | NoSuchMethodException | InstantiationException | IllegalAccessException e) {
             e.printStackTrace();
         }

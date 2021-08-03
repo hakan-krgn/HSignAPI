@@ -44,7 +44,6 @@ public class HSignWrapper_v1_9_R1 extends HSignWrapper {
         PacketPlayOutOpenSignEditor outOpenSignEditor = new PacketPlayOutOpenSignEditor(blockPosition);
         playerConnection.sendPacket(outOpenSignEditor);
 
-        signLinesConsumer.accept(hSign.getLines());
         this.signCallback.put(blockPosition + player.getName(), signLinesConsumer);
     }
 
