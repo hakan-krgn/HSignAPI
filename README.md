@@ -1,12 +1,13 @@
 # hSignAPI
 
 ```java
-public class ExampleSign implements CommandExecutor {
+public class ExampleSign extends JavaPlugin {
 
     private final HSignAPI signAPI;
 
-    public ExampleSign(Plugin plugin) {
-        this.signAPI = SignAPI.getInstance(plugin);
+    @Override
+    public void onEnable() {
+        this.signAPI = SignAPI.getInstance(this);
     }
 
     public HSignAPI getSignAPI() {
