@@ -1,8 +1,9 @@
 package com.hakan.signapi.bukkit;
 
 import com.hakan.signapi.api.HSignAPI;
-import com.hakan.signapi.bukkit.listener.SignListener;
+import com.hakan.signapi.api.HSignCreator;
 import com.hakan.signapi.api.HSignManager;
+import com.hakan.signapi.bukkit.listener.SignListener;
 import com.hakan.signapi.bukkit.sign.SignManager;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -46,7 +47,8 @@ public class SignAPI implements HSignAPI {
         return this.signManager;
     }
 
-    public SignCreator getSignCreator() {
+    @Override
+    public HSignCreator getSignCreator() {
         return new SignCreator(this);
     }
 }

@@ -8,4 +8,6 @@ public interface HSignAPI {
 
     HSignManager getSignManager();
 
+    HSignCreator getSignCreator();
+
 }
