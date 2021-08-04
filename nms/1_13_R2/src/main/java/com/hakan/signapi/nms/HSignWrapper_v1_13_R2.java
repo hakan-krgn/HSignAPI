@@ -1,4 +1,4 @@
-package com.hakan.signapi;
+package com.hakan.signapi.nms;
 
 import com.hakan.signapi.api.HSign;
 import com.hakan.signapi.api.HSignAPI;
@@ -7,20 +7,20 @@ import io.netty.channel.Channel;
 import io.netty.channel.ChannelDuplexHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelPipeline;
-import net.minecraft.server.v1_16_R3.*;
+import net.minecraft.server.v1_13_R2.*;
 import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
-import org.bukkit.craftbukkit.v1_16_R3.CraftWorld;
-import org.bukkit.craftbukkit.v1_16_R3.block.CraftSign;
-import org.bukkit.craftbukkit.v1_16_R3.entity.CraftPlayer;
-import org.bukkit.craftbukkit.v1_16_R3.util.CraftMagicNumbers;
+import org.bukkit.craftbukkit.v1_13_R2.CraftWorld;
+import org.bukkit.craftbukkit.v1_13_R2.block.CraftSign;
+import org.bukkit.craftbukkit.v1_13_R2.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_13_R2.util.CraftMagicNumbers;
 import org.bukkit.entity.Player;
 
 import java.util.function.Consumer;
 
-public class HSignWrapper_v1_16_R3 extends HSignWrapper {
+public class HSignWrapper_v1_13_R2 extends HSignWrapper {
 
-    public HSignWrapper_v1_16_R3(HSignAPI hSignAPI) {
+    public HSignWrapper_v1_13_R2(HSignAPI hSignAPI) {
         super(hSignAPI);
     }
 

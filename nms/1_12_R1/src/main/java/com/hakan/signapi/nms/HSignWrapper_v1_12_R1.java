@@ -1,4 +1,4 @@
-package com.hakan.signapi;
+package com.hakan.signapi.nms;
 
 import com.hakan.signapi.api.HSign;
 import com.hakan.signapi.api.HSignAPI;
@@ -7,20 +7,20 @@ import io.netty.channel.Channel;
 import io.netty.channel.ChannelDuplexHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelPipeline;
-import net.minecraft.server.v1_9_R1.*;
+import net.minecraft.server.v1_12_R1.*;
 import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
-import org.bukkit.craftbukkit.v1_9_R1.CraftWorld;
-import org.bukkit.craftbukkit.v1_9_R1.block.CraftSign;
-import org.bukkit.craftbukkit.v1_9_R1.entity.CraftPlayer;
-import org.bukkit.craftbukkit.v1_9_R1.util.CraftMagicNumbers;
+import org.bukkit.craftbukkit.v1_12_R1.CraftWorld;
+import org.bukkit.craftbukkit.v1_12_R1.block.CraftSign;
+import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_12_R1.util.CraftMagicNumbers;
 import org.bukkit.entity.Player;
 
 import java.util.function.Consumer;
 
-public class HSignWrapper_v1_9_R1 extends HSignWrapper {
+public class HSignWrapper_v1_12_R1 extends HSignWrapper {
 
-    public HSignWrapper_v1_9_R1(HSignAPI hSignAPI) {
+    public HSignWrapper_v1_12_R1(HSignAPI hSignAPI) {
         super(hSignAPI);
     }
 
@@ -37,7 +37,7 @@ public class HSignWrapper_v1_9_R1 extends HSignWrapper {
 
         IChatBaseComponent[] components = CraftSign.sanitizeLines(hSign.getLines());
         TileEntitySign sign = new TileEntitySign();
-        sign.a(new BlockPosition(blockPosition.getX(), blockPosition.getY(), blockPosition.getZ()));
+        sign.setPosition(new BlockPosition(blockPosition.getX(), blockPosition.getY(), blockPosition.getZ()));
         System.arraycopy(components, 0, sign.lines, 0, sign.lines.length);
         playerConnection.sendPacket(sign.getUpdatePacket());
 

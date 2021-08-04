@@ -1,4 +1,4 @@
-package com.hakan.signapi;
+package com.hakan.signapi.nms;
 
 import com.hakan.signapi.api.HSign;
 import com.hakan.signapi.api.HSignAPI;
@@ -7,20 +7,20 @@ import io.netty.channel.Channel;
 import io.netty.channel.ChannelDuplexHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelPipeline;
-import net.minecraft.server.v1_13_R2.*;
+import net.minecraft.server.v1_11_R1.*;
 import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
-import org.bukkit.craftbukkit.v1_13_R2.CraftWorld;
-import org.bukkit.craftbukkit.v1_13_R2.block.CraftSign;
-import org.bukkit.craftbukkit.v1_13_R2.entity.CraftPlayer;
-import org.bukkit.craftbukkit.v1_13_R2.util.CraftMagicNumbers;
+import org.bukkit.craftbukkit.v1_11_R1.CraftWorld;
+import org.bukkit.craftbukkit.v1_11_R1.block.CraftSign;
+import org.bukkit.craftbukkit.v1_11_R1.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_11_R1.util.CraftMagicNumbers;
 import org.bukkit.entity.Player;
 
 import java.util.function.Consumer;
 
-public class HSignWrapper_v1_13_R2 extends HSignWrapper {
+public class HSignWrapper_v1_11_R1 extends HSignWrapper {
 
-    public HSignWrapper_v1_13_R2(HSignAPI hSignAPI) {
+    public HSignWrapper_v1_11_R1(HSignAPI hSignAPI) {
         super(hSignAPI);
     }
 
@@ -56,7 +56,7 @@ public class HSignWrapper_v1_13_R2 extends HSignWrapper {
                     PacketPlayInUpdateSign packetSign = (PacketPlayInUpdateSign) packet;
 
                     Bukkit.getScheduler().runTask(plugin, () -> {
-                        BlockPosition position = packetSign.b();
+                        BlockPosition position = packetSign.a();
                         String id = position + player.getName();
 
                         if (signCallback.containsKey(id)) {
@@ -64,8 +64,8 @@ public class HSignWrapper_v1_13_R2 extends HSignWrapper {
                             block.setType(block.getType());
 
                             int m = 0;
-                            String[] lines = new String[packetSign.c().length];
-                            for (String line : packetSign.c()) {
+                            String[] lines = new String[packetSign.b().length];
+                            for (String line : packetSign.b()) {
                                 lines[m] = line;
                                 m++;
                             }
