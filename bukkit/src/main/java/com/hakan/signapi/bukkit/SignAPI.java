@@ -33,7 +33,7 @@ public class SignAPI implements HSignAPI {
         }
     }
 
-    public static HSignAPI getInstance(Plugin plugin) {
+    public static SignAPI getInstance(Plugin plugin) {
         return SignAPI.instance == null ? new SignAPI(plugin) : SignAPI.instance;
     }
 
