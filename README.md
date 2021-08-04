@@ -3,7 +3,7 @@
 ```java
 public class ExampleSign extends JavaPlugin {
 
-    private final HSignAPI signAPI;
+    private HSignAPI signAPI;
 
     @Override
     public void onEnable() {
