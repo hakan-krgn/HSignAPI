@@ -3,14 +3,14 @@
 ```java
 public class ExampleSign extends JavaPlugin {
 
-    private HSignAPI signAPI;
+    private SignAPI signAPI;
 
     @Override
     public void onEnable() {
         this.signAPI = SignAPI.getInstance(this);
     }
 
-    public HSignAPI getSignAPI() {
+    public SignAPI getSignAPI() {
         return this.signAPI;
     }
 
