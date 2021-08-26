@@ -10,6 +10,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 
+import java.util.NoSuchElementException;
+
 public class SignAPI implements HSignAPI {
 
     private static SignAPI instance;
@@ -25,7 +27,10 @@ public class SignAPI implements HSignAPI {
             SignAPI.instance = this;
 
             for (Player loopPlayer : Bukkit.getOnlinePlayers()) {
-                this.signManager.getSignWrapper().startListener(loopPlayer);
+                try {
+                    this.signManager.getSignWrapper().startListener(loopPlayer);
+                } catch (NoSuchElementException ignored) {
+                }
             }
 
             PluginManager pm = Bukkit.getPluginManager();

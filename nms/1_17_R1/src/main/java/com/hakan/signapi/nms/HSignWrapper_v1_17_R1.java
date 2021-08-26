@@ -86,10 +86,13 @@ public class HSignWrapper_v1_17_R1 extends HSignWrapper {
 
     @Override
     public void stopListener(Player player) {
-        Channel channel = ((CraftPlayer) player).getHandle().b.a.k;
-        channel.eventLoop().submit(() -> {
-            channel.pipeline().remove("sign_api_pipeline_channel_" + player.getName());
-            return null;
-        });
+        try {
+            Channel channel = ((CraftPlayer) player).getHandle().b.a.k;
+            channel.eventLoop().submit(() -> {
+                channel.pipeline().remove("sign_api_pipeline_channel_" + player.getName());
+                return null;
+            });
+        } catch (IllegalStateException ignored) {
+        }
     }
 }
